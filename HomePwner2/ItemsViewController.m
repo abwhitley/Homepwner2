@@ -10,6 +10,7 @@
 #import "ItemStore.h"
 #import "Item.h"
 #import "ItemCellTableViewCell.h"
+#import "DetailViewController.h"
 @interface ItemsViewController ()
 
 @end
@@ -20,14 +21,10 @@
 -(void) viewDidLoad{
     [super viewDidLoad];
     
-    //Get the height of the status bar
-    CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    UIEdgeInsets insets = UIEdgeInsetsMake(statusBarHeight, 0, 0, 0);
-    self.tableView.contentInset = insets;
-    self.tableView.scrollIndicatorInsets = insets;
-    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 65;}
+    self.tableView.estimatedRowHeight = 65;
+}
+
 
 //MARK: -Table View Data Source and Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -102,27 +99,40 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
--(IBAction)toggleEditingMode:(id)sender{
-    
-    //If your currently in Editing Mode...
-    if(self.editing){
-        //Change the text of the button to inform user
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        //Turn Off Editing Mode
-        [self setEditing:NO animated:YES];
-    }else{
-        //Change the text of the button to inform user
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        //Turn on Editing Mode
-        [self setEditing:YES animated:YES];
-    }
-    
-}
+
 - (void)tableView:(UITableView *)tableView
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
       toIndexPath:(NSIndexPath *)destinationIndexPath {
     [self.itemStore moveItemAtIndex:sourceIndexPath.row
                             toIndex:destinationIndexPath.row];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // If the triggered segue is the "ShowItem" segue
+    if ([segue.identifier isEqualToString:@"ShowItem"]) {
+        // Figure out which row was just tapped
+        NSInteger row = [self.tableView indexPathForSelectedRow].row;
+        // Get the item at that row and pass it along
+        // to the segue's destination view controller
+        Item *item = self.itemStore.allItems[row];
+        DetailViewController *dvc =
+        (DetailViewController *)segue.destinationViewController;
+        dvc.item = item;
+    } }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+// MARK: - Initializers
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.navigationItem.leftBarButtonItem = [self editButtonItem];
+    }
+    return self;
 }
 
 @end

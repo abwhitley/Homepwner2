@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E94207AC1D93FF1E0083400C /* ItemCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E94207AB1D93FF1E0083400C /* ItemCellTableViewCell.m */; };
+		E97B927D1D94715300F784BD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E97B927C1D94715300F784BD /* DetailViewController.m */; };
 		E9B8024B1D900FDE007ED42B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B8024A1D900FDE007ED42B /* main.m */; };
 		E9B8024E1D900FDE007ED42B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B8024D1D900FDE007ED42B /* AppDelegate.m */; };
 		E9B802541D900FDE007ED42B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B802521D900FDE007ED42B /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 /* Begin PBXFileReference section */
 		E94207AA1D93FF1E0083400C /* ItemCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCellTableViewCell.h; sourceTree = "<group>"; };
 		E94207AB1D93FF1E0083400C /* ItemCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCellTableViewCell.m; sourceTree = "<group>"; };
+		E97B927B1D94715300F784BD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E97B927C1D94715300F784BD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		E9B802461D900FDE007ED42B /* HomePwner2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePwner2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B8024A1D900FDE007ED42B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E9B8024C1D900FDE007ED42B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 				E9B8024C1D900FDE007ED42B /* AppDelegate.h */,
 				E9B8024D1D900FDE007ED42B /* AppDelegate.m */,
 				E9B802521D900FDE007ED42B /* Main.storyboard */,
+				E97B927B1D94715300F784BD /* DetailViewController.h */,
+				E97B927C1D94715300F784BD /* DetailViewController.m */,
 				E9B802631D90109E007ED42B /* Item.h */,
 				E94207AA1D93FF1E0083400C /* ItemCellTableViewCell.h */,
 				E94207AB1D93FF1E0083400C /* ItemCellTableViewCell.m */,
@@ -171,6 +176,7 @@
 				E9B8024E1D900FDE007ED42B /* AppDelegate.m in Sources */,
 				E9B8024B1D900FDE007ED42B /* main.m in Sources */,
 				E9B802681D9014AB007ED42B /* ItemStore.m in Sources */,
+				E97B927D1D94715300F784BD /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
