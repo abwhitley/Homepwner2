@@ -14,7 +14,7 @@
 
 
 @interface AppDelegate ()
-
+@property (nonatomic) ItemStore *itemStore;
 @end
 
 @implementation AppDelegate
@@ -24,6 +24,7 @@
 
     //Create an ItemStore
     ItemStore *itemStore  = [ItemStore new];
+    self.itemStore = itemStore;
     // Create an ImageStore
     ImageStore *imageStore = [ImageStore new];
 
@@ -45,6 +46,12 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    BOOL success = [self.itemStore saveChanges];
+    if (success) {
+        NSLog(@"Saved %lu items to disk.", (unsigned long)self.itemStore.allItems.count);
+    } else {
+        NSLog(@"Failed to save the items to disk.");
+    }
 }
 
 

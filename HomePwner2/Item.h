@@ -20,5 +20,6 @@
                  serialNumber: (NSString *) serialNumber
                valueInDollars: (int) valueInDollars NS_DESIGNATED_INITIALIZER;
 -(instancetype)initWithRandomValues;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "Item.h"
+@interface Item () <NSCoding>
+@end
 
 @implementation Item
 -(instancetype) initWithName:(NSString *)name
@@ -40,5 +42,25 @@
     return [self initWithName:name
                  serialNumber:serial
                valueInDollars:value];
+}
+
+// MARK: - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.dateCreated forKey:@"dateCreated"];
+    [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
+    [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
+    [aCoder encodeInt:self.valueInDollars forKey:@"valueInDollars"];
+}
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        _name = [aDecoder decodeObjectForKey:@"name"];
+        _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
+        _itemKey = [aDecoder decodeObjectForKey:@"itemKey"];
+        _serialNumber = [aDecoder decodeObjectForKey:@"serialNumber"];
+        _valueInDollars = [aDecoder decodeIntForKey:@"valueInDollars"];
+    }
+    return self;
 }
 @end
