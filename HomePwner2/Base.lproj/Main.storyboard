@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lyr-Bh-b8H" id="jdW-xQ-6wv">
-                                    <frame key="frameInset" width="375" height="64.5"/>
+                                    <frame key="frameInset" width="375" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqK-PH-QJu">
@@ -146,23 +146,40 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="5mQ-fu-30m"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="oVU-zI-OAJ" firstAttribute="leading" secondItem="2EB-pk-scg" secondAttribute="leading" id="T23-SG-sO7"/>
                                     <constraint firstItem="cuE-DE-fo3" firstAttribute="leading" secondItem="oVU-zI-OAJ" secondAttribute="leading" id="hoM-ae-3is"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKI-sp-v2s">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="R4T-tm-JPx"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="fhh-tF-sDA">
+                                        <connections>
+                                            <action selector="cameraButtonTapped:" destination="aEM-u8-C0v" id="hB9-BN-SCW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="LYJ-QU-G3l" secondAttribute="trailing" constant="8" id="3IL-js-ttu"/>
-                            <constraint firstItem="Igx-qd-MXC" firstAttribute="top" secondItem="LYJ-QU-G3l" secondAttribute="bottom" constant="8" id="CI2-hm-G8g"/>
+                            <constraint firstItem="Igx-qd-MXC" firstAttribute="top" secondItem="iKI-sp-v2s" secondAttribute="bottom" id="I6r-LC-dhr"/>
+                            <constraint firstAttribute="trailing" secondItem="iKI-sp-v2s" secondAttribute="trailing" id="Q3H-9T-j0O"/>
                             <constraint firstItem="LYJ-QU-G3l" firstAttribute="leading" secondItem="bwZ-5e-4t6" secondAttribute="leadingMargin" constant="8" id="UP1-R9-SGX"/>
+                            <constraint firstItem="iKI-sp-v2s" firstAttribute="top" secondItem="LYJ-QU-G3l" secondAttribute="bottom" constant="8" id="aNY-q8-gZn"/>
                             <constraint firstItem="LYJ-QU-G3l" firstAttribute="top" secondItem="YtU-mt-7AL" secondAttribute="bottom" constant="8" id="mYZ-Jp-Cnh"/>
+                            <constraint firstItem="iKI-sp-v2s" firstAttribute="leading" secondItem="bwZ-5e-4t6" secondAttribute="leading" id="zBz-80-wqO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="9Bn-eM-HYG" id="mBi-th-HbX"/>
+                        <outlet property="imageView" destination="5mQ-fu-30m" id="u4o-iP-adc"/>
                         <outlet property="nameField" destination="cuE-DE-fo3" id="YxV-rM-Zhx"/>
                         <outlet property="serialNumberField" destination="oVU-zI-OAJ" id="X8i-D5-BpH"/>
                         <outlet property="valueField" destination="2EB-pk-scg" id="UvY-3f-YJv"/>

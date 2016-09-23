@@ -18,6 +18,7 @@
         _serialNumber = [serialNumber copy];
         _valueInDollars = valueInDollars;
         _dateCreated = [NSDate date];
+        _itemKey = [NSUUID UUID].UUIDString;
     }
     return self;
 }

@@ -11,6 +11,8 @@
 #import "Item.h"
 #import "ItemCellTableViewCell.h"
 #import "DetailViewController.h"
+#import "ImageStore.h"
+
 @interface ItemsViewController ()
 
 @end
@@ -72,6 +74,8 @@
                                                              handler:^(UIAlertAction * _Nonnull action){
                                                                  // Remove the item from the store
                                                                  [self.itemStore removeItem:item];
+                                                                 // Delete the item's image from the image store
+                                                                 [self.imageStore deleteImageForKey:item.itemKey];
                                                                  // Also remove its cell from the table view
                                                                  [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                                                                                        withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -118,6 +122,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         DetailViewController *dvc =
         (DetailViewController *)segue.destinationViewController;
         dvc.item = item;
+        dvc.imageStore = self.imageStore;
     } }
 - (void)viewWillAppear:(BOOL)animated
 {
